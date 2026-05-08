@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shepard Memory Lab</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Roger Shepard, 1967</p>
+        <h1>Shepard Memory Lab</h1>
+      </div>
+      <nav class="tabs" aria-label="Site sections">
+        <button class="tab is-active" type="button" data-view="lab">Try the Study</button>
+        <button class="tab" type="button" data-view="explain">Explanation</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="view is-active" id="lab" aria-labelledby="lab-title">
+        <div class="lab-grid">
+          <section class="panel experiment-panel">
+            <div class="stage-header">
+              <div>
+                <p class="eyebrow" id="stage-label">Interactive Demo</p>
+                <h2 id="lab-title">Can you recognize what you just saw?</h2>
+              </div>
+              <div class="progress-pill" id="progress-pill">Ready</div>
+            </div>
+
+            <div class="stage" id="stage" aria-live="polite"></div>
+
+            <div class="controls" id="controls"></div>
+          </section>
+
+          <aside class="panel side-panel" aria-labelledby="score-title">
+            <h2 id="score-title">Your Run</h2>
+            <div class="scoreboard">
+              <div>
+                <span id="seen-count">0</span>
+                <small id="studied-label">items studied</small>
+              </div>
+              <div>
+                <span id="answer-count">0</span>
+                <small>test decisions</small>
+              </div>
+              <div>
+                <span id="accuracy-count">--</span>
+                <small>accuracy</small>
+              </div>
+            </div>
+            <div class="note" id="lab-note">
+              Shepard compared recognition for pictures, words, and sentences. Pick one material type, study a short set, then test your recognition.
+            </div>
+          </aside>
+        </div>
+
+        <section class="material-section" aria-labelledby="material-title">
+          <p class="eyebrow">Words, Sentences, Pictures</p>
+          <h2 id="material-title">Run the same memory task with different materials.</h2>
+          <div class="material-grid">
+            <article>
+              <h3>Words</h3>
+              <p>Single items test recognition for compact verbal labels.</p>
+            </article>
+            <article>
+              <h3>Sentences</h3>
+              <p>Short statements add meaning and structure, but less visual detail.</p>
+            </article>
+            <article>
+              <h3>Pictures</h3>
+              <p>Images give memory several cues at once: form, color, layout, and category.</p>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <section class="view" id="explain" aria-labelledby="explain-title">
+        <div class="article-layout">
+          <section class="explain-copy">
+            <p class="eyebrow">The Study</p>
+            <h2 id="explain-title">Recognition memory is especially strong for images.</h2>
+            <p>
+              In Roger Shepard's classic 1967 study, participants first viewed a large set of items: words, sentences, and pictures. Later, they were shown pairs or test items and asked which ones they had seen before.
+            </p>
+            <p>
+              The standout result was that pictures were recognized with very high accuracy, far above what many people would expect from a quick viewing session. The finding helped establish that human memory for meaningful visual information is broad, detailed, and durable.
+            </p>
+            <p>
+              The implication is not that people remember every pixel. Instead, people seem to store rich visual and conceptual traces: the kind of object, its shape, its arrangement, and enough distinctive detail to reject many new pictures.
+            </p>
+          </section>
+
+          <section class="finding-band" aria-label="Study finding summary">
+            <div class="finding">
+              <strong>Pictures</strong>
+              <span>Often remembered with remarkable accuracy.</span>
+            </div>
+            <div class="finding">
+              <strong>Words</strong>
+              <span>Remembered well, but typically less vividly.</span>
+            </div>
+            <div class="finding">
+              <strong>Sentences</strong>
+              <span>Meaning helps, but exact recognition can still be challenging.</span>
+            </div>
+            <div class="finding">
+              <strong>Design Lesson</strong>
+              <span>Distinct, meaningful visuals can make information stick.</span>
+            </div>
+          </section>
+
+          <section class="implications">
+            <h2>Why It Matters</h2>
+            <div class="implication-grid">
+              <article>
+                <h3>Learning</h3>
+                <p>Pictures can anchor facts, categories, and examples because they give memory more cues to grab onto later.</p>
+              </article>
+              <article>
+                <h3>Interface Design</h3>
+                <p>Visual distinction helps users recognize tools, states, and places in a product without rereading every label.</p>
+              </article>
+              <article>
+                <h3>Everyday Memory</h3>
+                <p>Recognition is often easier than recall: seeing the image again can reactivate a surprisingly precise memory trace.</p>
+              </article>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
