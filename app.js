@@ -1,4 +1,4 @@
-const pictureStimuli = [
+const generatedPictureStimuli = [
   ["alpine cabin", "house", "#dce8ef", "#2d6f74", "#d9953d", "#7aa35a"],
   ["harbor sail", "boat", "#d9eef0", "#146c6f", "#d9a441", "#83b7be"],
   ["olive tree", "tree", "#e8eadc", "#467a4d", "#8b5a33", "#b9c383"],
@@ -36,6 +36,14 @@ const pictureStimuli = [
   ["white flower", "flower", "#dce8e4", "#f8f4ea", "#b3402b", "#7aa35a"],
   ["gold kite", "kite", "#f1e8d2", "#d9a441", "#146c6f", "#8fab69"]
 ];
+
+const pictureStimuli = Array.from({ length: 50 }, (_, index) => {
+  const number = String(index + 1).padStart(2, "0");
+  return {
+    name: `Pixabay photo ${number}`,
+    src: `images/image-${number}.jpg`
+  };
+});
 
 const wordStimuli = [
   "anchor", "velvet", "lantern", "garden", "orbit", "canyon", "silver", "market", "window",
@@ -207,26 +215,9 @@ function nextStudyCard() {
 }
 
 function renderPicture(stimulus, size = "") {
-  const [name, kind, bg, c1, c2, c3] = stimulus;
-  const common = `<span class="shape sky"></span><span class="shape ground"></span><span class="shape sun"></span>`;
-  const variants = {
-    house: `${common}<span class="shape roof"></span><span class="shape body"></span><span class="shape door"></span>`,
-    boat: `${common}<span class="shape mast"></span><span class="shape sail"></span><span class="shape hull"></span>`,
-    tree: `${common}<span class="shape trunk"></span><span class="shape leaf-a"></span><span class="shape leaf-b"></span><span class="shape leaf-c"></span>`,
-    mountain: `${common}<span class="shape mountain-a"></span><span class="shape mountain-b"></span>`,
-    symbol: `${common}<span class="shape ring"></span><span class="shape dot"></span>`,
-    chair: `${common}<span class="shape chair-back"></span><span class="shape chair-seat"></span><span class="shape chair-leg-a"></span><span class="shape chair-leg-b"></span>`,
-    clock: `${common}<span class="shape clock-face"></span><span class="shape clock-hand-a"></span><span class="shape clock-hand-b"></span>`,
-    book: `${common}<span class="shape book-left"></span><span class="shape book-right"></span><span class="shape book-spine"></span>`,
-    umbrella: `${common}<span class="shape umbrella-top"></span><span class="shape umbrella-pole"></span><span class="shape umbrella-hook"></span>`,
-    key: `${common}<span class="shape key-ring"></span><span class="shape key-shaft"></span><span class="shape key-tooth-a"></span><span class="shape key-tooth-b"></span>`,
-    flower: `${common}<span class="shape flower-petal-a"></span><span class="shape flower-petal-b"></span><span class="shape flower-petal-c"></span><span class="shape flower-center"></span><span class="shape flower-stem"></span>`,
-    kite: `${common}<span class="shape kite-top"></span><span class="shape kite-tail"></span><span class="shape kite-bow-a"></span><span class="shape kite-bow-b"></span>`
-  };
   return `
-    <div class="picture-card ${size}" role="img" aria-label="${name}" style="--card-bg:${bg};--c1:${c1};--c2:${c2};--c3:${c3}">
-      ${variants[kind]}
-      <span class="caption">${name}</span>
+    <div class="picture-card photo-card ${size}">
+      <img src="${stimulus.src}" alt="${stimulus.name}" loading="eager">
     </div>
   `;
 }
